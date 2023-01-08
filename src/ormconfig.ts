@@ -1,5 +1,4 @@
 import { DataSourceOptions } from "typeorm";
-import { TagEntity } from "./tag/tag.entity";
 
 const config: DataSourceOptions = {
     type: 'postgres',
@@ -8,8 +7,9 @@ const config: DataSourceOptions = {
     username: 'medium_clone_admin',
     password: 'password',
     database: 'medium_clone',
-    entities: [TagEntity],
-    synchronize: true
+    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    synchronize: false,
+    migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
 }
 
 export default config;
